@@ -1,12 +1,11 @@
-body
-    {
-    background-color:#eaf3fd;
-      font-family: "Poppins", sans-serif;
+body {
+    background-color: #eaf3fd;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     font-weight: 300;
-    }
-    
- .row {
+}
+
+.row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -20,7 +19,7 @@ body
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    background-color:white;
+    background-color: white;
 }
 
 .card-body {
@@ -28,40 +27,41 @@ body
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.25rem;
-    
-}   
 
-.card-primary ,.ui-valuef{
+}
+
+.card-primary, .ui-valuef {
     background: #17a2b8;
     border-color: #17a2b8;
-    color:white;
+    color: white;
 }
 
-.card-second ,.ui-values{
+.card-second, .ui-values {
     background: #e83e8c;
     border-color: #e83e8c;
-    color:white;
+    color: white;
 }
 
-.card-orange ,.ui-valuet{
+.card-orange, .ui-valuet {
     background: #fd7e14;
     border-color: #fd7e14;
-    color:white;
+    color: white;
 }
 
-.panel-heading{
-	padding:10px;
-	
+.panel-heading {
+    padding: 10px;
+
 }
 
-#slct1{
-	 border-radius: 10px;
-	 color:black;
-	
+#slct1 {
+    border-radius: 10px;
+    color: black;
+
 }
-#username{
-	 border-radius: 10px;
-	 color:black;
+
+#username {
+    border-radius: 10px;
+    color: black;
 }
 
 .card-no-border .card {
@@ -70,14 +70,17 @@ body
     -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
 }
+
 .card {
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
+
 .card {
     margin-bottom: 30px;
 }
+
 .card {
     position: relative;
     display: -webkit-box;
@@ -91,22 +94,22 @@ body
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
 }
+
 h3 {
-	margin-top: 0;
+    margin-top: 0;
     line-height: 30px;
     font-size: 21px;
 }
 
+#img {
 
-#img{
-	
-	margin-top: 0;
-	width:30%;
-	height:20%;
-	padding:5px;
-	float:right;
-	 margin-bottom: 30px;
+    margin-top: 0;
+    width: 30%;
+    height: 20%;
+    padding: 5px;
+    float: right;
+    margin-bottom: 30px;
 }
