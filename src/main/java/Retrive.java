@@ -22,8 +22,8 @@ import com.mysql.jdbc.Statement;
  */
 @WebServlet("/Retrive")
 public class Retrive extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,16 +32,16 @@ public class Retrive extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-	    Date date = new Date();
-	    System.out.println("[INFO]-----"+formatter.format(date)+"-----Accessed Retrieve servlet-----[INFO]");  
-		PrintWriter out = response.getWriter();
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println("[INFO]-----" + formatter.format(date) + "-----Accessed Retrieve servlet-----[INFO]");
+        PrintWriter out = response.getWriter();
         response.setContentType("text/html");
         out.println("<html><body>");
         try {
@@ -50,28 +50,27 @@ public class Retrive extends HttpServlet {
             // Here dsnname- mydsn,user id- system(for oracle 10g),password is pintu.
             Statement stmt = (Statement) con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from appdetails");
-           
-          
+
+
             while (rs.next()) {
                 String n = rs.getString("appname");
                 String nm = rs.getString("ref");
-                out.println("<textbox" +n  ); 
+                out.println("<textbox" + n);
                 out.print(">");
             }
-           
+
             con.close();
-           }
-            catch (Exception e) {
+        } catch (Exception e) {
             out.println("error");
         }
-	}
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
 
 }

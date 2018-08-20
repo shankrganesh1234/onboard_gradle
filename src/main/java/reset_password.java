@@ -25,8 +25,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet("/reset_password")
 public class reset_password extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,61 +35,61 @@ public class reset_password extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub;
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-	    Date date = new Date();  
-	    System.out.println("[INFO]-----"+formatter.format(date)+"-----Accessed Reset Password servlet-----[INFO]"); 
-		PrintWriter pw=response.getWriter();
-		HttpSession passwd=request.getSession();
-String email=request.getParameter("email");
-passwd.setAttribute("email", email);
-	Properties props = new Properties();
-				
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.office365.com");
-		props.put("mail.smtp.port", "587");
-		Session session = Session.getDefaultInstance(props,
-		new javax.mail.Authenticator() {
-		protected PasswordAuthentication getPasswordAuthentication() {
-		//return new PasswordAuthentication("vkarun202@gmail.com","arun's@kumar");
-			return new PasswordAuthentication("arun.vk@platform3solutions.com","arun@kid06");
-		}
-		});
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println("[INFO]-----" + formatter.format(date) + "-----Accessed Reset Password servlet-----[INFO]");
+        PrintWriter pw = response.getWriter();
+        HttpSession passwd = request.getSession();
+        String email = request.getParameter("email");
+        passwd.setAttribute("email", email);
+        Properties props = new Properties();
 
-		try {
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.office365.com");
+        props.put("mail.smtp.port", "587");
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        //return new PasswordAuthentication("vkarun202@gmail.com","arun's@kumar");
+                        return new PasswordAuthentication("arun.vk@platform3solutions.com", "arun@kid06");
+                    }
+                });
 
-		Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress("arun.vk@platform3solutions.com"));
-		
-		message.setRecipients(Message.RecipientType.TO,
-		InternetAddress.parse(email));
-		message.setSubject("Recovery Mail");
-		message.setText("http://localhost:8080/onboard/reset_pass.jsp");
+        try {
 
-		Transport.send(message);
-		pw.println("<html><body>");  
-		pw.println("Recovery Mail have been sent to your account\n");
-		pw.println("</body></html>");  
-		  
-		pw.close();
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("arun.vk@platform3solutions.com"));
 
-		} catch (MessagingException e) {
-		throw new RuntimeException(e);
-		}
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(email));
+            message.setSubject("Recovery Mail");
+            message.setText("http://localhost:8080/onboard/reset_pass.jsp");
 
-	}
+            Transport.send(message);
+            pw.println("<html><body>");
+            pw.println("Recovery Mail have been sent to your account\n");
+            pw.println("</body></html>");
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+            pw.close();
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        doGet(request, response);
+    }
 
 }

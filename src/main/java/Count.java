@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/Count")
 public class Count extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,37 +27,37 @@ public class Count extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        response.getWriter().append("Served at: ").append(request.getContextPath());
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-	    Date date = new Date();  
-	    System.out.println("[INFO]-----"+formatter.format(date)+"-----Accessed Count servlet-----[INFO]");  
-		String fromdate=request.getParameter("field1");
-		String todate=request.getParameter("field2");
-		String actual_date=request.getParameter("field3");
-		//System.out.println("fromdate : "+fromdate);
-		Weekday wk=new Weekday();
-		int count=wk.splittingoperation(fromdate, todate);
-		int actual_count=wk.actualhours(actual_date);
-				String result=Integer.toString(count)+","+Integer.toString(actual_count);
-				//System.out.println(" sfssf : "+result);
-		//System.out.println("Count : "+count);
-		//request.setAttribute("count", count);
-		response.setContentType("text/plain");  
-	    response.setCharacterEncoding("UTF-8"); 
-	    response.getWriter().write(result);
-		//doGet(request, response);
-	}
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println("[INFO]-----" + formatter.format(date) + "-----Accessed Count servlet-----[INFO]");
+        String fromdate = request.getParameter("field1");
+        String todate = request.getParameter("field2");
+        String actual_date = request.getParameter("field3");
+        //System.out.println("fromdate : "+fromdate);
+        Weekday wk = new Weekday();
+        int count = wk.splittingoperation(fromdate, todate);
+        int actual_count = wk.actualhours(actual_date);
+        String result = Integer.toString(count) + "," + Integer.toString(actual_count);
+        //System.out.println(" sfssf : "+result);
+        //System.out.println("Count : "+count);
+        //request.setAttribute("count", count);
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(result);
+        //doGet(request, response);
+    }
 
 }
