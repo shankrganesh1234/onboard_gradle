@@ -1,4 +1,5 @@
 package onboard;
+
 import java.util.Base64;
 import java.util.Scanner;
 import javax.crypto.Cipher;
@@ -6,17 +7,17 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class encryption {
-    
-    private static final String encryptionKey           = "ENCRYPTION__KEYS";
-    private static final String characterEncoding       = "UTF-8";
-    private static final String cipherTransformation    = "AES/CBC/PKCS5PADDING";
+
+    private static final String encryptionKey = "ENCRYPTION__KEYS";
+    private static final String characterEncoding = "UTF-8";
+    private static final String cipherTransformation = "AES/CBC/PKCS5PADDING";
     private static final String aesEncryptionAlgorithem = "AES";
- 
+
     public static String encrypt(String plainText) {
         String encryptedText = "";
         try {
-            Cipher cipher   = Cipher.getInstance(cipherTransformation);
-            byte[] key      = encryptionKey.getBytes(characterEncoding);
+            Cipher cipher = Cipher.getInstance(cipherTransformation);
+            byte[] key = encryptionKey.getBytes(characterEncoding);
             SecretKeySpec secretKey = new SecretKeySpec(key, aesEncryptionAlgorithem);
             IvParameterSpec ivparameterspec = new IvParameterSpec(key);
             cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivparameterspec);
@@ -25,12 +26,12 @@ public class encryption {
             encryptedText = encoder.encodeToString(cipherText);
 
         } catch (Exception E) {
-             System.err.println("Encrypt Exception : "+E.getMessage());
+            System.err.println("Encrypt Exception : " + E.getMessage());
         }
         return encryptedText;
     }
 
- 
+
     public static String decrypt(String encryptedText) {
         String decryptedText = "";
         try {
@@ -44,9 +45,9 @@ public class encryption {
             decryptedText = new String(cipher.doFinal(cipherText), "UTF-8");
 
         } catch (Exception E) {
-            System.err.println("decrypt Exception : "+E.getMessage());
+            System.err.println("decrypt Exception : " + E.getMessage());
         }
         return decryptedText;
     }
-    
+
 }
