@@ -105,7 +105,7 @@ public class Edit_Intake extends HttpServlet {
             }
 
             // System.out.println("update query is "+query);
-
+            System.out.println("update query");
         } catch (Exception e) {
             System.err.println("[ERROR]-----Got an exception!" + formatter.format(date) + "-----" + e.getMessage() + "----[ERROR]");
         }
