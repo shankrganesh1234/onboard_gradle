@@ -76,8 +76,8 @@ public class confirmation extends HttpServlet {
 		pw.println("</body></html>");  
 		  
 		pw.close();
-				 
 
+			System.out.println("Hello");
 		} catch (MessagingException e) {
 		throw new RuntimeException(e);
 		}
