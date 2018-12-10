@@ -125,6 +125,8 @@ public class Business_sam extends HttpServlet {
         } catch (Exception e) {
 
             System.err.println("[ERROR]-----Got an exception!" + formatter.format(date) + "-----" + e.getMessage() + "----[ERROR]");
+            System.err.println("Testing ------->");
+
 
         }
         // return response
