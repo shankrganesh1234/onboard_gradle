@@ -477,7 +477,7 @@ public class Appin extends HttpServlet {
         // request.setAttribute("value", pid);
         response.sendRedirect("Applications.jsp");
 
-        System.out.println("Hello Sample");
+        System.out.println("Hello Sample 1");
     }
 
 }
