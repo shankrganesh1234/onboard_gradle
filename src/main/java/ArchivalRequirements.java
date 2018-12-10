@@ -132,6 +132,7 @@ public class ArchivalRequirements extends HttpServlet {
                 }
             }
             conn.close();
+            System.out.println("hello example");
         } catch (Exception e) {
 
             System.err.println("[ERROR]-----Got an exception!" + formatter.format(date) + "-----" + e.getMessage() + "----[ERROR]");
